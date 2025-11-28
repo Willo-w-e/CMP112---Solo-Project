@@ -4,12 +4,11 @@ using UnityEngine;
 
 
 
-
 public class ButtonPress : MonoBehaviour
 {
-    public object target;
     public int duration;
     private int countdown;
+    
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,7 +30,7 @@ public class ButtonPress : MonoBehaviour
             }
         }
     }
-
+    
 
     private void OnCollisionEnter(Collision other)
     {
@@ -49,11 +48,11 @@ public class ButtonPress : MonoBehaviour
 
     private void ActivateTarget()
     {
-
+        
     }
 
     private void DisableTarget()
     {
-
+        
     }
 }

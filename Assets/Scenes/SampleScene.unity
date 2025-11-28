@@ -2273,6 +2273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63df0508a9a2183408c6a612c1162c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: Proximity button
   duration: 0
 --- !u!65 &1697267479
 BoxCollider:
@@ -2503,6 +2504,7 @@ GameObject:
   - component: {fileID: 1904515904}
   - component: {fileID: 1904515903}
   - component: {fileID: 1904515902}
+  - component: {fileID: 1904515905}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -2599,6 +2601,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904515900}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1904515905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904515900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128af84ed8cb65d469d267c337e8fbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2138666766
 GameObject:
   m_ObjectHideFlags: 0
