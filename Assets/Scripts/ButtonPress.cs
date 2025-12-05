@@ -25,35 +25,36 @@ public class ButtonPress : MonoBehaviour
         {
             countdown--;
 
-            if (countdown == 0)
+            if (countdown <= 0)
             {
-                DisableTarget();
+                otherObject.active = false;
             }
         }
     }
     
 
     private void OnCollisionEnter(Collision other)
-    {
-        if (duration == 0)
-        {
-            ActivateTarget();
-        }
+    { 
 
-        else
+        otherObject.active = true;
+
+        if (duration > 0)
         {
-            ActivateTarget();
             countdown = duration;
         }
     }
 
-    private void ActivateTarget()
+    private void OnCollisionExit(Collision collision)
     {
-        otherObject.active = true;
+        if (duration > 0)
+        {
+            countdown = duration;
+        }
+        else
+        {
+            otherObject.active = false;
+        }
     }
 
-    private void DisableTarget()
-    {
-        otherObject.active = true;
-    }
+
 }
