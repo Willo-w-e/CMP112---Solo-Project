@@ -8,7 +8,8 @@ public class ButtonPress : MonoBehaviour
 {
     public int duration;
     private int countdown;
-    
+
+    public activator otherObject;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -48,7 +49,8 @@ public class ButtonPress : MonoBehaviour
 
     private void ActivateTarget()
     {
-        
+        //gameObject.enable = false;
+        otherObject.active = false;
     }
 
     private void DisableTarget()
