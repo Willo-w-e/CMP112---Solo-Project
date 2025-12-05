@@ -49,12 +49,11 @@ public class ButtonPress : MonoBehaviour
 
     private void ActivateTarget()
     {
-        //gameObject.enable = false;
-        otherObject.active = false;
+        otherObject.active = true;
     }
 
     private void DisableTarget()
     {
-        
+        otherObject.active = true;
     }
 }
