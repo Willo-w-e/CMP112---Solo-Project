@@ -2276,7 +2276,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherObject: {fileID: 1237082898}
-  active: 0
   closedMat: {fileID: 2100000, guid: b5a38681f44b41c46aa9b30ba756ced4, type: 2}
   openedMat: {fileID: 2100000, guid: 0221ae1e6e0b1d84081f2950a852d86d, type: 2}
 --- !u!23 &1237082896
@@ -2926,7 +2925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0
-  otherObject: {fileID: 0}
+  otherObject: {fileID: 1237082898}
 --- !u!65 &1697267479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2942,7 +2941,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
