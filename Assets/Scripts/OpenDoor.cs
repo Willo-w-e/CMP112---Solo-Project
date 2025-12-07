@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    public activator otherObject;
+    public activator otherObject; //Link to the activator 
 
     
 
@@ -10,7 +10,7 @@ public class OpenDoor : MonoBehaviour
 
   
  
-    public Material closedMat;
+    public Material closedMat; //Containers for the 2 materials
 
     public Material openedMat;
 
@@ -26,13 +26,13 @@ public class OpenDoor : MonoBehaviour
     {
         if (otherObject.active == true)
         {
-            this.GetComponent<Collider>().enabled = false;
-            this.GetComponent<MeshRenderer>().material = openedMat;
+            this.GetComponent<Collider>().enabled = false; //Disables the doors collider letting you pass through it
+            this.GetComponent<MeshRenderer>().material = openedMat; //Sets door mat to a transparent texture I made
         }
         else
         {
-            this.GetComponent<Collider>().enabled = true;
-            this.GetComponent<MeshRenderer>().material = closedMat;
+            this.GetComponent<Collider>().enabled = true; //Re-enables the doors collider 
+            this.GetComponent<MeshRenderer>().material = closedMat; //Sets door mat to a solid texture
         }
     }
 }

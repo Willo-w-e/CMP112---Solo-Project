@@ -3,17 +3,7 @@ using UnityEngine;
 public class activator : MonoBehaviour
 {
 
-    public bool active;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public bool active; //This literally just holds this 1 variable
+    //Lowk dont even think this is necessary
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

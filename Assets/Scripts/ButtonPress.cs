@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class ButtonPress : MonoBehaviour
 {
-    public int duration;
+    public int duration; //Button press duration
     private int countdown;
 
-    public activator otherObject;
+    public activator otherObject; //Links to activator
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,13 +21,13 @@ public class ButtonPress : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (countdown > 0)
+        if (countdown > 0) 
         {
-            countdown--;
+            countdown--; //De-increments countdown (Is that a word? I dont really know i'm not that good at English)
 
-            if (countdown <= 0)
+            if (countdown <= 0) 
             {
-                otherObject.active = false;
+                otherObject.active = false; //Disables the other object when countdown hits 0 via the activator
             }
         }
     }
@@ -36,9 +36,9 @@ public class ButtonPress : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     { 
 
-        otherObject.active = true;
+        otherObject.active = true; //Activates the other objects functions via the activator 
 
-        if (duration > 0)
+        if (duration > 0) //Sets countdown up if the press has duration
         {
             countdown = duration;
         }
@@ -46,13 +46,13 @@ public class ButtonPress : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (duration > 0)
+        if (duration > 0) 
         {
             countdown = duration;
         }
         else
         {
-            otherObject.active = false;
+            otherObject.active = false; //Disables other object on getting off the button if theres no duration
         }
     }
 
