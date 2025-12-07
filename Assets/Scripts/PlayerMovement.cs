@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Move");
     }
@@ -24,7 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        Vector2 direction = moveAction.ReadValue<Vector2>();
-        transform.position += new Vector3(direction.x, 0, direction.y) * speed *  Time.deltaTime;
+        Vector2 input = moveAction.ReadValue<Vector2>();
+
+        Vector3 move = (transform.right * input.x + transform.forward * input.y);
+
+        transform.position += move * speed * Time.deltaTime;
     }
 }
