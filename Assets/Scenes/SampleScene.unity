@@ -2363,7 +2363,7 @@ GameObject:
   - component: {fileID: 1252533519}
   m_Layer: 0
   m_Name: Player?
-  m_TagString: Untagged
+  m_TagString: detectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2721,6 +2721,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1480915566}
   - component: {fileID: 1480915569}
+  - component: {fileID: 1480915570}
   - component: {fileID: 1480915568}
   - component: {fileID: 1480915567}
   m_Layer: 0
@@ -2823,6 +2824,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480915565}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1480915570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480915565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898203e1a0704b64d8c0687fcc4786b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveMat: {fileID: 2100000, guid: 5841a413078703044ad54affd1d6d9de, type: 2}
+  InactiveMat: {fileID: 2100000, guid: e7077baa926b64646beb57c2612d7dac, type: 2}
+  valid: 0
+  maxdistance: 10
+  otherObject: {fileID: 1237082898}
 --- !u!1 &1551294279
 GameObject:
   m_ObjectHideFlags: 0
