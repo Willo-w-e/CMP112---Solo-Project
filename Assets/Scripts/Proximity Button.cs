@@ -35,17 +35,21 @@ public class ProximityButton : MonoBehaviour
         if (Physics.Raycast(Sensor, out hit, maxdistance)) //Send out ray for max distance
         {
 
-            if (hit.collider.CompareTag("detectable"))
+            if (hit.collider.CompareTag("detectable")) //Checks if the collided target is marked as detectable with tags
             {
-                otherObject.active = true;
+                otherObject.active = true; //Sets the activator proxy to true
+                this.GetComponent<MeshRenderer>().material = ActiveMat;
             }
             else
             {
-                otherObject.active = false;
+                otherObject.active = false; //Sets the activator proxy to false if the collided object isnt marked as detectable
+                this.GetComponent<MeshRenderer>().material = InactiveMat;
             }
-        } else
+        } 
+        else
         {
-            otherObject.active = false;
+            otherObject.active = false; //Sets the activator proxy to false if nothing is collided
+            this.GetComponent<MeshRenderer>().material = InactiveMat;
         }
 
 
