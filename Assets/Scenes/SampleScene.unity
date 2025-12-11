@@ -2028,6 +2028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1039485129}
   - component: {fileID: 1039485130}
+  - component: {fileID: 1039485131}
   m_Layer: 0
   m_Name: Jump Pad
   m_TagString: Untagged
@@ -2053,6 +2054,19 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1039485130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039485128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128af84ed8cb65d469d267c337e8fbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
+--- !u!114 &1039485131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2615,7 +2629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4626676eba226bc4eba3cdd45a9acf1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
 --- !u!114 &1252533521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2630,7 +2644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerrotation: {fileID: 1252533517}
   camerarotation: {fileID: 330585546}
-  mouseSensitivity: 100
+  mouseSensitivity: 10
 --- !u!114 &1252533522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2840,7 +2854,7 @@ MonoBehaviour:
   InactiveMat: {fileID: 2100000, guid: e7077baa926b64646beb57c2612d7dac, type: 2}
   valid: 0
   maxdistance: 10
-  otherObject: {fileID: 1237082898}
+  otherObject: {fileID: 1039485130}
 --- !u!1 &1551294279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3106,7 +3120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63df0508a9a2183408c6a612c1162c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0
+  duration: 200
   otherObject: {fileID: 1237082898}
 --- !u!65 &1697267479
 BoxCollider:

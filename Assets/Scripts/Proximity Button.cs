@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ProximityButton : MonoBehaviour
@@ -13,9 +14,9 @@ public class ProximityButton : MonoBehaviour
 
     Vector3 Origin;
 
-    Vector3 Direction = Vector3.forward;
-
     public activator otherObject;
+
+    private Vector3 direction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,12 +29,16 @@ public class ProximityButton : MonoBehaviour
     {
         Origin = transform.position;
 
-        Ray Sensor = new Ray(Origin, Direction); //Defines ray as moving from the position of the object, forward
+        direction = -transform.right;
+
+        Ray Sensor = new Ray(Origin, direction); //Defines ray as moving from the position of the object, forward
 
         RaycastHit hit;
 
         if (Physics.Raycast(Sensor, out hit, maxdistance)) //Send out ray for max distance
         {
+
+            Debug.Log("Ray hit: " + hit.collider.name);
 
             if (hit.collider.CompareTag("detectable")) //Checks if the collided target is marked as detectable with tags
             {
@@ -54,5 +59,14 @@ public class ProximityButton : MonoBehaviour
 
 
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        direction = -transform.right;
+
+        Gizmos.color = new Color(0f, 1f, 0f, 1f);
+
+        Gizmos.DrawRay(transform.position, direction * maxdistance);
     }
 }
