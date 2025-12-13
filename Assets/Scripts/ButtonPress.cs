@@ -34,14 +34,21 @@ public class ButtonPress : MonoBehaviour
     
 
     private void OnCollisionEnter(Collision other)
-    { 
+    {
 
-        otherObject.active = true; //Activates the other objects functions via the activator 
+        if (duration >= 0)
+        {
+            otherObject.active = true; //Activates the other objects functions via the activator 
+        } else
+        {
+            otherObject.active = !otherObject.active;
+        }
+
 
         if (duration > 0) //Sets countdown up if the press has duration
         {
             countdown = duration;
-        }
+        } 
     }
 
     private void OnCollisionExit(Collision collision)
@@ -50,9 +57,9 @@ public class ButtonPress : MonoBehaviour
         {
             countdown = duration;
         }
-        else
+        else if (duration == 0) 
         {
-            otherObject.active = false; //Disables other object on getting off the button if theres no duration
+            otherObject.active = false; //Disables other object on getting off the button if theres no duration, making it so that negative durations make it toggle
         }
     }
 
