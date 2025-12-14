@@ -6,6 +6,7 @@ public class PlayerJump : MonoBehaviour
 
     public int jumpheight = 1; //Base jumpheight 
     public Rigidbody rb;
+    private bool jump = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,8 +20,20 @@ public class PlayerJump : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("ground"))
+        {
+            jump = true;
+        }
+    }
+
     void OnJump()
     {
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpheight, rb.linearVelocity.z); //Lowk not that much to this, just add new linear velocity to the players rigid body while maintaining the horizontal velocities from movement while adding jump height allowing for smooth jumps 
+        if (jump == true)
+        {
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpheight, rb.linearVelocity.z); //Lowk not that much to this, just add new linear velocity to the players rigid body while maintaining the horizontal velocities from movement while adding jump height allowing for smooth jumps 
+            jump = false;
+        }
     }
 }
