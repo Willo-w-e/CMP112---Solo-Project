@@ -5,7 +5,7 @@ public class JumpPad : MonoBehaviour
 {
     public float strength = 10;
 
-    public activator otherObject; //Link to the activator 
+    public activator activator; //Link to the activator 
 
     bool invert = false;
 
@@ -30,7 +30,7 @@ public class JumpPad : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
 
-        if (otherObject.active = totrigger)
+        if (activator.active = totrigger)
         {
 
             Rigidbody rb = other.gameObject.GetComponent<Rigidbody>(); //Set rigidbody to the rigidbody of the item colliding with it allowing me to use this with movable objects too

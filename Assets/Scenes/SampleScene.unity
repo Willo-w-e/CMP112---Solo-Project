@@ -1413,6 +1413,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 382914033827817534, guid: 00bfef16bc9b95744a2de5ff9867ce50, type: 3}
+      propertyPath: activator
+      value: 
+      objectReference: {fileID: 1484072679}
     - target: {fileID: 1429508805227520743, guid: 00bfef16bc9b95744a2de5ff9867ce50, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.21036
@@ -1505,7 +1509,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1039485129}
   - component: {fileID: 1039485130}
-  - component: {fileID: 1039485131}
   m_Layer: 0
   m_Name: Jump Pad
   m_TagString: Untagged
@@ -1531,19 +1534,6 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1039485130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039485128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 128af84ed8cb65d469d267c337e8fbf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
---- !u!114 &1039485131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2031,6 +2021,17 @@ Transform:
   - {fileID: 2029287300}
   m_Father: {fileID: 988954575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1484072679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 916180958200106838, guid: 00bfef16bc9b95744a2de5ff9867ce50, type: 3}
+  m_PrefabInstance: {fileID: 966125382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128af84ed8cb65d469d267c337e8fbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1633747982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,6 +2496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strength: 10
+  activator: {fileID: 1039485130}
 --- !u!1 &2029287299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,6 +2615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2034102697}
   - component: {fileID: 2034102700}
+  - component: {fileID: 2034102701}
   - component: {fileID: 2034102699}
   - component: {fileID: 2034102698}
   m_Layer: 0
@@ -2713,6 +2716,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034102696}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2034102701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034102696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9cfcb1c6b948647b85beee99f8ec22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activator: {fileID: 2127130268}
+  ActiveMat: {fileID: 2100000, guid: 38af477a95bcc27469f885f2eadf8495, type: 2}
+  InactiveMat: {fileID: 2100000, guid: 13fbdbe328f685f47be259a3daf13c50, type: 2}
+  invert: 1
+  maxdistance: 10
+  strength: 10
 --- !u!1 &2127130267
 GameObject:
   m_ObjectHideFlags: 0

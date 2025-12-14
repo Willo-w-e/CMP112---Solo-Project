@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    public activator otherObject; //Link to the activator 
+    public activator activator; //Link to the activator 
 
 
 
@@ -29,7 +29,7 @@ public class OpenDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (otherObject.active == toopen)
+        if (activator.active == toopen)
         {
             this.GetComponent<Collider>().enabled = false; //Disables the doors collider letting you pass through it
             this.GetComponent<MeshRenderer>().material = openedMat; //Sets door mat to a transparent texture I made
