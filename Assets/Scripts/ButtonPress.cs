@@ -21,7 +21,7 @@ public class ButtonPress : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        source = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>(); //Let me make clicks!
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class ButtonPress : MonoBehaviour
         {
             if(duration < 0)
             {
-                source.PlayOneShot(press, 1.0f);
+                source.PlayOneShot(press, 1.0f); //Click
             }
 
             return; //Breaks out the function if button is already pressed
@@ -58,9 +58,9 @@ public class ButtonPress : MonoBehaviour
         if (duration >= 0)
         {
             otherObject.active = true; //Activates the other objects functions via the activator 
-        } else
+        } else 
         {
-            otherObject.active = !otherObject.active;
+            otherObject.active = !otherObject.active; //Inverts active
         }
 
 
@@ -76,7 +76,7 @@ public class ButtonPress : MonoBehaviour
     {
         if (duration > 0) 
         {
-            countdown = duration;
+            countdown = duration; //Sets countdown
         }
         else if (duration == 0) 
         {
@@ -86,7 +86,7 @@ public class ButtonPress : MonoBehaviour
             otherObject.active = false; //Disables other object on getting off the button if theres no duration, making it so that negative durations make it toggle
         }
 
-        source.PlayOneShot(release, 1.0f);
+        source.PlayOneShot(release, 1.0f); //Click
     }
 
 

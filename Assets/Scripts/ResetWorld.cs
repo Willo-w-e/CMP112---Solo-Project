@@ -15,29 +15,28 @@ public class ResetWorld : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this;
+            instance = this; //Make instance
         }
 
-        resettargets = Object.FindObjectsByType<ResetObject>(FindObjectsSortMode.None);
+        resettargets = Object.FindObjectsByType<ResetObject>(FindObjectsSortMode.None); //Find all objects with ResetObject script
     }
 
     // Update is called once per frame
     public void ResetWorldState()
     {
-        foreach (var obj in resettargets)
+        foreach (var obj in resettargets) //Go through all objects
         {
-            obj.resetobject();
+            obj.resetobject(); //resets object in that spot of the array
         }
 
-        player.position = checkpoints.respawn;
+        player.position = checkpoints.respawn; //Move player to respawn loction
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Debug.Log("R");
-            ResetWorldState();
+            ResetWorldState(); //Reset
         }
     }
 }

@@ -22,9 +22,9 @@ public class PlayerJump : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("ground"))
+        if (collision.collider.CompareTag("ground")) //Checks if on the ground
         {
-            jump = true;
+            jump = true; //if on ground, allow jump
         }
     }
 

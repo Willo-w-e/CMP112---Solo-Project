@@ -25,15 +25,15 @@ public class CheckpointSetter : MonoBehaviour
     {
         
 
-        if (CompareTag("endpoint"))
+        if (CompareTag("endpoint")) //checks if the collider is the end room
         {
-            position = start.position;
+            position = start.position; //If collider is endrooms, set to the respawn point in room 0
         } else
         {
-            position = other.transform.position;
+            position = other.transform.position; //Set to current position
         }
 
-            controller.SetRespawn(position, end);
+            controller.SetRespawn(position, end); //Sets position in the controller
 
     }
 }   

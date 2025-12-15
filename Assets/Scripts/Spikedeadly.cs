@@ -11,7 +11,7 @@ public class Spikedeadly : MonoBehaviour
 
         if (collision.collider.CompareTag("player"))
         {
-            collision.transform.position = respawn.position;
+            collision.transform.position = respawn.position; //moves player to respawn position (Sadly has to be done manually, can probably run this through the checkpoint controller though)
         }
     }
 
