@@ -7,7 +7,7 @@ public class JumpPad : MonoBehaviour
 
     public activator activator; //Link to the activator 
 
-    bool invert = false;
+    public bool invert = false;
 
     bool totrigger = true;
 
@@ -33,12 +33,16 @@ public class JumpPad : MonoBehaviour
         if (activator.active = totrigger)
         {
 
-            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>(); //Set rigidbody to the rigidbody of the item colliding with it allowing me to use this with movable objects too
-
-            if (rb != null) //Only tries to run if theres a rigidbody
+            if ((other.collider.CompareTag("detectable")) || (other.collider.CompareTag("player")))
             {
-                rb.AddForce(transform.up * strength, ForceMode.Impulse); //Im sure I remember being able to just have the force be an impulse by default but I couldnt find that in my old code
-            } //I use transform.up so I can slant the launcher and still get a proper angle
+
+                Rigidbody rb = other.gameObject.GetComponent<Rigidbody>(); //Set rigidbody to the rigidbody of the item colliding with it allowing me to use this with movable objects too
+
+                if (rb != null) //Only tries to run if theres a rigidbody
+                {
+                    rb.AddForce(transform.up * strength, ForceMode.Impulse); //Im sure I remember being able to just have the force be an impulse by default but I couldnt find that in my old code
+                } //I use transform.up so I can slant the launcher and still get a proper angle
+            }
         }
     }
 }

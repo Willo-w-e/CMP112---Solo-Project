@@ -8,7 +8,11 @@ public class Spikedeadly : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        collision.transform.position = respawn.position;
+
+        if (collision.collider.CompareTag("player"))
+        {
+            collision.transform.position = respawn.position;
+        }
     }
 
 }

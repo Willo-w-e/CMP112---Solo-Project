@@ -49,30 +49,32 @@ public class PushPad : MonoBehaviour
             {
                 RaycastHit hit = hits[i];
 
-                if (hit.collider.CompareTag("detectable")) //Checks for tag (I dont want to be flinging walls about that wouldnt be slay
-                {
-                    Rigidbody rb = hit.collider.attachedRigidbody; //Sets rigidbody to object thats currently being handled
+                if ((hit.collider.CompareTag("detectable")) || (hit.collider.CompareTag("player")))
+                { //Checks for tag (I dont want to be flinging walls about that wouldnt be slay
+                    {
+                        Rigidbody rb = hit.collider.attachedRigidbody; //Sets rigidbody to object thats currently being handled
 
-                    rb.useGravity = false; //Disable gravity to stop the trajectories being as downhill as me on a saturday night
+                        rb.useGravity = false; //Disable gravity to stop the trajectories being as downhill as me on a saturday night
 
-                    rb.AddForce(direction * strength); //WEEEEEEEEEEEEEE
+                        rb.AddForce(direction * strength); //WEEEEEEEEEEEEEE
 
-                    currentHits.Add(rb); //Add current rb to current hits
-                    affectedRBs.Add(rb); //Add current rb to affected rigidbodies
+                        currentHits.Add(rb); //Add current rb to current hits
+                        affectedRBs.Add(rb); //Add current rb to affected rigidbodies
+                    }
                 }
             }
-        }
-        foreach (Rigidbody rb in affectedRBs) //Go through all affected rigidbodies
-        {
-            if (!currentHits.Contains(rb))
+            foreach (Rigidbody rb in affectedRBs) //Go through all affected rigidbodies
             {
-                rb.useGravity = true; //Check if they are currently being hit and if not, re-enable their gravity
-                rb.linearVelocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero; //Stops the thingie completely when it gets to the top
-              
-            }
-        }
+                if (!currentHits.Contains(rb))
+                {
+                    rb.useGravity = true; //Check if they are currently being hit and if not, re-enable their gravity
+                    rb.linearVelocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero; //Stops the thingie completely when it gets to the top
 
-        affectedRBs = currentHits; //Set affected RBs to currently hit RBs preventing an infinite loop
+                }
+            }
+
+            affectedRBs = currentHits; //Set affected RBs to currently hit RBs preventing an infinite loop
+        }
     }
 }
