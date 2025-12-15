@@ -10,13 +10,18 @@ public class ButtonPress : MonoBehaviour
     private int countdown;
     private bool pressed;
 
+    private AudioSource source;
+
+    public AudioClip press;
+    public AudioClip release;
+
     public activator otherObject; //Links to activator
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +45,11 @@ public class ButtonPress : MonoBehaviour
 
         if (pressed == true)
         {
+            if(duration < 0)
+            {
+                source.PlayOneShot(press, 1.0f);
+            }
+
             return; //Breaks out the function if button is already pressed
         }
 
@@ -57,7 +67,9 @@ public class ButtonPress : MonoBehaviour
         if (duration > 0) //Sets countdown up if the press has duration
         {
             countdown = duration;
-        } 
+        }
+
+        source.PlayOneShot(press, 1.0f);
     }
 
     private void OnCollisionExit(Collision collision)
@@ -69,9 +81,12 @@ public class ButtonPress : MonoBehaviour
         else if (duration == 0) 
         {
 
+           
             pressed = false; //lets button be pressed again
             otherObject.active = false; //Disables other object on getting off the button if theres no duration, making it so that negative durations make it toggle
         }
+
+        source.PlayOneShot(release, 1.0f);
     }
 
 
