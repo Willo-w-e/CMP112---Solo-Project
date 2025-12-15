@@ -6,6 +6,7 @@ public class CheckpointSetter : MonoBehaviour
     private Vector3 position;
     public CheckpointController controller;
     bool end;
+    public Transform start;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,17 +23,17 @@ public class CheckpointSetter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        position = other.transform.position;
+        
 
-        if (other.GetComponent<Collider>().CompareTag("endpoint"))
+        if (CompareTag("endpoint"))
         {
-            end = true;
+            position = start.position;
         } else
         {
-            end = false;
+            position = other.transform.position;
         }
 
             controller.SetRespawn(position, end);
 
     }
-}
+}   

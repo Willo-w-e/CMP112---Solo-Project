@@ -20,13 +20,7 @@ public class CheckpointController : MonoBehaviour
 
     public void SetRespawn(Vector3 position, bool end)
     {
-        if (end == true)
-        {
-            respawn = start.transform.position;
-        } else
-        {
-            respawn = position;
-        }
+        respawn = position;
     }
 }
     

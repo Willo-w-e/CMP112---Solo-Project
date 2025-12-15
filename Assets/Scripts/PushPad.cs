@@ -77,4 +77,13 @@ public class PushPad : MonoBehaviour
             affectedRBs = currentHits; //Set affected RBs to currently hit RBs preventing an infinite loop
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        direction = transform.up;
+
+        Gizmos.color = new Color(0f, 1f, 0f, 1f);
+
+        Gizmos.DrawRay(transform.position, direction * maxdistance); //For visualizing button range when level building
+    }
 }

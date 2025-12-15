@@ -8,6 +8,7 @@ public class ButtonPress : MonoBehaviour
 {
     public int duration; //Button press duration
     private int countdown;
+    private bool pressed;
 
     public activator otherObject; //Links to activator
     
@@ -28,6 +29,7 @@ public class ButtonPress : MonoBehaviour
             if (countdown <= 0) 
             {
                 otherObject.active = false; //Disables the other object when countdown hits 0 via the activator
+                pressed = false; //Lets button be pressed again
             }
         }
     }
@@ -35,6 +37,13 @@ public class ButtonPress : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+
+        if (pressed == true)
+        {
+            return; //Breaks out the function if button is already pressed
+        }
+
+        pressed = true; //Says the button is pressed
 
         if (duration >= 0)
         {
@@ -59,6 +68,8 @@ public class ButtonPress : MonoBehaviour
         }
         else if (duration == 0) 
         {
+
+            pressed = false; //lets button be pressed again
             otherObject.active = false; //Disables other object on getting off the button if theres no duration, making it so that negative durations make it toggle
         }
     }
