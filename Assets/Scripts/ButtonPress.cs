@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
@@ -19,7 +20,11 @@ public class ButtonPress : MonoBehaviour
     public activator otherObject; //Links to activator
 
     private bool hasbeenpressed;
-    
+
+    public float minpitch = 1.0f;
+    public float maxpitch = 2.0f;
+
+    public int collisions = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,10 +51,13 @@ public class ButtonPress : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
 
+        collisions++;
+
         if (pressed == true)
         {
             if(duration < 0)
             {
+                source.pitch = RandomPitch(minpitch, maxpitch);
                 source.PlayOneShot(press, 1.0f); //Click
             }
 
@@ -72,6 +80,7 @@ public class ButtonPress : MonoBehaviour
             countdown = duration; //Sets countdown
         }
 
+        source.pitch = RandomPitch(minpitch, maxpitch);
         source.PlayOneShot(press, 1.0f);
 
         hasbeenpressed = true;
@@ -79,15 +88,17 @@ public class ButtonPress : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        
-        if (duration == 0) 
+
+        collisions = Mathf.Max(0, collisions - 1); //Clamps collisions value at 0 preventing it from ever going negative
+
+        if (duration == 0 && collisions == 0) //Makes sure the button doesnt turn off when somethings still on it 
         {
 
            
             pressed = false; //lets button be pressed again
             otherObject.active = false; //Disables other object on getting off the button if theres no duration, making it so that negative durations make it toggle
         }
-
+        source.pitch = 1;
         source.PlayOneShot(release, 1.0f); //Click
     }
 
@@ -109,6 +120,13 @@ public class ButtonPress : MonoBehaviour
         }
 
 
+    }
+
+    public float RandomPitch(float min, float max)
+    {
+        float number = Random.Range(min, max);
+
+        return number;
     }
 
 

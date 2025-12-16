@@ -38,7 +38,7 @@ public class PickupConroller : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, pickupRange))
         {
-            if (hit.collider.CompareTag("detectable")) //If hit data is marked detectable (Im gonna change this tagging later to make it more robust for expansion
+            if  (hit.collider.CompareTag("pickup")) //If hit data is marked pickup
             {
                 heldObject = hit.collider.GetComponent<Rigidbody>();   //Set held object to be the object hit
                 if (heldObject != null)

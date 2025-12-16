@@ -20,6 +20,7 @@ public class PushPad : MonoBehaviour
 
     private HashSet<Rigidbody> affectedRBs = new HashSet<Rigidbody>();
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,7 +50,7 @@ public class PushPad : MonoBehaviour
             {
                 RaycastHit hit = hits[i];
 
-                if ((hit.collider.CompareTag("detectable")) || (hit.collider.CompareTag("player")))
+                if ((hit.collider.CompareTag("detectable")) || (hit.collider.CompareTag("player")) || (hit.collider.CompareTag("pickup")))
                 { //Checks for tag (I dont want to be flinging walls about that wouldnt be slay
                     {
                         Rigidbody rb = hit.collider.attachedRigidbody; //Sets rigidbody to object thats currently being handled

@@ -26,9 +26,9 @@ public class ResetWorld : MonoBehaviour
     // Update is called once per frame
     public void ResetWorldState()
     {
-        resettargets = Object.FindObjectsByType<ResetObject>(FindObjectsSortMode.None);
+        resettargets = Object.FindObjectsByType<ResetObject>(FindObjectsSortMode.None); //Find all moveable objects
 
-        buttons = Object.FindObjectsByType<ButtonPress>(FindObjectsSortMode.None);
+        buttons = Object.FindObjectsByType<ButtonPress>(FindObjectsSortMode.None); //Find all buttons
 
         foreach (var obj in resettargets) //Go through all moveable objects
         {
