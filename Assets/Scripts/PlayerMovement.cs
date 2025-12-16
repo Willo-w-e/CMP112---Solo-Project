@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float speed = 10;
 
+    public ResetWorld ResetWorld;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,5 +37,17 @@ public class PlayerMovement : MonoBehaviour
         transform.position += move * speed * Time.deltaTime; //Move by the previous Vector 3
 
         //This allows the player to move in the direction they're facing changing WASD dynamically and not just being the X and Y axis 
+    }
+
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("deadly"))
+        {
+            if (ResetWorld != null)
+            {
+                ResetWorld.ResetWorldState();
+            }
+        }
     }
 }
