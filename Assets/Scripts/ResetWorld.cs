@@ -6,6 +6,8 @@ public class ResetWorld : MonoBehaviour
 
     private ResetObject[] resettargets;
 
+    private ButtonPress[] buttons;
+
     public CheckpointController checkpoints;
 
     public Transform player;
@@ -26,9 +28,16 @@ public class ResetWorld : MonoBehaviour
     {
         resettargets = Object.FindObjectsByType<ResetObject>(FindObjectsSortMode.None);
 
-        foreach (var obj in resettargets) //Go through all objects
+        buttons = Object.FindObjectsByType<ButtonPress>(FindObjectsSortMode.None);
+
+        foreach (var obj in resettargets) //Go through all moveable objects
         {
-            obj.resetobject(); //resets object in that spot of the array
+            obj.resetobject(); //resets moveable object in that spot of the array
+        }
+
+        foreach (var obj in buttons) //Go through all buttons
+        {
+            obj.ResetButton(); //resets button in that spot of the array
         }
 
         player.position = checkpoints.respawn; //Move player to respawn loction

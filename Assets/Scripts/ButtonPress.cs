@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 
 
 
@@ -6,8 +7,8 @@ using UnityEngine;
 
 public class ButtonPress : MonoBehaviour
 {
-    public int duration; //Button press duration
-    private int countdown;
+    public float duration; //Button press duration
+    private float countdown;
     private bool pressed;
 
     private AudioSource source;
@@ -16,6 +17,8 @@ public class ButtonPress : MonoBehaviour
     public AudioClip release;
 
     public activator otherObject; //Links to activator
+
+    private bool hasbeenpressed;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,7 +32,7 @@ public class ButtonPress : MonoBehaviour
     {
         if (countdown > 0) 
         {
-            countdown--; //De-increments countdown (Is that a word? I dont really know i'm not that good at English)
+            countdown -= Time.deltaTime;
 
             if (countdown <= 0) 
             {
@@ -66,19 +69,18 @@ public class ButtonPress : MonoBehaviour
 
         if (duration > 0) //Sets countdown up if the press has duration
         {
-            countdown = duration;
+            countdown = duration; //Sets countdown
         }
 
         source.PlayOneShot(press, 1.0f);
+
+        hasbeenpressed = true;
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (duration > 0) 
-        {
-            countdown = duration; //Sets countdown
-        }
-        else if (duration == 0) 
+        
+        if (duration == 0) 
         {
 
            
@@ -87,6 +89,26 @@ public class ButtonPress : MonoBehaviour
         }
 
         source.PlayOneShot(release, 1.0f); //Click
+    }
+
+    public void ResetButton()
+    {
+
+        if (hasbeenpressed == true)
+        {
+            countdown = 0;
+
+            if (duration < 0)
+            {
+                otherObject.active = !otherObject.active;
+            }
+
+            hasbeenpressed = false;
+            pressed = false;
+
+        }
+
+
     }
 
 

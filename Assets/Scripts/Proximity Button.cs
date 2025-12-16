@@ -60,6 +60,8 @@ public class ProximityButton : MonoBehaviour
 
     }
 
+
+
     private void OnDrawGizmos()
     {
         direction = -transform.right;
