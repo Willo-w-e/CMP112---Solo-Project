@@ -66,6 +66,6 @@ public class ProximityButton : MonoBehaviour
 
         Gizmos.color = new Color(0f, 1f, 0f, 1f);
 
-        Gizmos.DrawRay(transform.position, direction * maxdistance);
+        Gizmos.DrawRay(transform.position, direction * maxdistance); //For visualizing button range when level building
     }
 }

@@ -11,19 +11,21 @@ public class ResetWorld : MonoBehaviour
     public Transform player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
         if (instance == null)
         {
             instance = this; //Make instance
         }
 
-        resettargets = Object.FindObjectsByType<ResetObject>(FindObjectsSortMode.None); //Find all objects with ResetObject script
+         //Find all objects with ResetObject script
     }
 
     // Update is called once per frame
     public void ResetWorldState()
     {
+        resettargets = Object.FindObjectsByType<ResetObject>(FindObjectsSortMode.None);
+
         foreach (var obj in resettargets) //Go through all objects
         {
             obj.resetobject(); //resets object in that spot of the array

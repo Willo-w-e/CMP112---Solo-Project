@@ -20,7 +20,7 @@ public class CheckpointController : MonoBehaviour
 
     public void SetRespawn(Vector3 position, bool end)
     {
-        respawn = position;
+        respawn = position; //Sets respawn to position
     }
 }
     
