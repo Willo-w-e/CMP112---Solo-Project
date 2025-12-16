@@ -9,6 +9,8 @@ TagManager:
   - ground
   - player
   - endpoint
+  - pickup
+  - deadly
   layers:
   - Default
   - TransparentFX
